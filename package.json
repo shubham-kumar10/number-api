@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon src/index.js"
   },
   "author": "",
   "license": "MIT",
@@ -18,6 +19,7 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "nodemon": "^2.0.14",
     "prettier": "^2.4.1"
   }
 }
