@@ -33,6 +33,28 @@ app.get('/trivia/:number', (req, res, next) => {
     });
 });
 
+app.get('/math/:number', (req, res, next) => {
+  axios
+    .get(`http://numbersapi.com/${req.params.number}/math?json`)
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+app.get('/random/:year', (req, res, next) => {
+  axios
+    .get(`http://numbersapi.com/random/year?json`)
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
