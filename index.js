@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(cors(corsOptions));
 
-app.get('/fact/:month/:day', (req, res, next) => {
+app.get('/fact/:month/:day', (req, res) => {
   axios
     .get(`http://numbersapi.com/${req.params.month}/${req.params.day}/date?json`)
     .then((response) => {
@@ -22,7 +22,7 @@ app.get('/fact/:month/:day', (req, res, next) => {
     });
 });
 
-app.get('/trivia/:number', (req, res, next) => {
+app.get('/trivia/:number', (req, res) => {
   axios
     .get(`http://numbersapi.com/${req.params.number}`)
     .then((response) => {
@@ -33,7 +33,7 @@ app.get('/trivia/:number', (req, res, next) => {
     });
 });
 
-app.get('/math/:number', (req, res, next) => {
+app.get('/math/:number', (req, res) => {
   axios
     .get(`http://numbersapi.com/${req.params.number}/math?json`)
     .then((response) => {
@@ -44,9 +44,9 @@ app.get('/math/:number', (req, res, next) => {
     });
 });
 
-app.get('/random/:year', (req, res, next) => {
+app.get('/random/:value', (req, res) => {
   axios
-    .get(`http://numbersapi.com/random/year?json`)
+    .get(`http://numbersapi.com/random/${req.params.value}?json`)
     .then((response) => {
       res.json(response.data);
     })
